@@ -238,37 +238,37 @@ export const marketingContent = {
     {
       step: "01",
       title: "Discovery",
-      description: "Understand business needs.",
+      description: "Map the workflow, users and constraints. Agree what success should look like.",
     },
     {
       step: "02",
       title: "Planning",
-      description: "Define roadmap.",
+      description: "Prioritise a useful first release, dependencies and review milestones.",
     },
     {
       step: "03",
       title: "Design",
-      description: "Create user experience.",
+      description: "Explore the key screens and journeys with your team's feedback.",
     },
     {
       step: "04",
       title: "Development",
-      description: "Build the solution.",
+      description: "Build in reviewable increments and demonstrate progress as the system takes shape.",
     },
     {
       step: "05",
       title: "Testing",
-      description: "Ensure quality.",
+      description: "Check critical workflows, access controls and agreed acceptance criteria.",
     },
     {
       step: "06",
       title: "Deployment",
-      description: "Launch product.",
+      description: "Prepare the release, deployment guidance and operational handover.",
     },
     {
       step: "07",
       title: "Support",
-      description: "Continuous improvement.",
+      description: "Agree maintenance and improvements around the way you use the system.",
     },
   ] satisfies readonly ProcessStep[],
   technologyStack: [
@@ -302,6 +302,9 @@ export const marketingContent = {
     },
   ] satisfies readonly TechnologyGroup[],
   faqs: [
+    { question: "How do we get started?", answer: "Share the problem, who will use the system and any existing tools or deadlines. We then clarify the scope and agree the next step before development starts." },
+    { question: "How much will a project cost, and how long will it take?", answer: "Cost and timing depend on scope, integrations, data and review requirements. We discuss the approach and milestones with you before agreeing a proposal." },
+    { question: "What happens at handover?", answer: "We agree source-code ownership, documentation, deployment access and support arrangements as part of the engagement. These should be clear before work begins." },
     {
       question: "What industries do you work with?",
       answer:

@@ -10,21 +10,25 @@ export const POST_HERO_FLOW_TARGET = "[data-diagram-node]" as const;
 export function PostHeroMotion() {
   useGSAP(() => {
     const root = document.querySelector<HTMLElement>(POST_HERO_MOTION_SCOPE);
-    if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!root) return;
 
     gsap.registerPlugin(ScrollTrigger);
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: no-preference)", () => {
     const context = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>("[data-motion-section]").forEach((section) => {
-        gsap.fromTo(section, { opacity: 0.7, y: 28 }, { opacity: 1, y: 0, duration: 0.75, ease: "power2.out", scrollTrigger: { trigger: section, start: "top 82%", once: true } });
+        gsap.fromTo(section, { y: 16 }, { y: 0, duration: 0.65, clearProps: "transform", ease: "power2.out", scrollTrigger: { trigger: section, start: "top 94%", once: true } });
       });
       gsap.utils.toArray<HTMLElement>("[data-motion-visual]").forEach((visual) => {
-        gsap.fromTo(visual, { clipPath: "inset(0 0 14% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.9, ease: "power2.out", scrollTrigger: { trigger: visual, start: "top 78%", once: true } });
+        gsap.fromTo(visual, { y: 12 }, { y: 0, clearProps: "transform", duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: visual, start: "top 94%", once: true } });
       });
       gsap.utils.toArray<HTMLElement>(POST_HERO_FLOW_TARGET).forEach((node, index) => {
         gsap.fromTo(node, { opacity: 0.45 }, { opacity: 1, duration: 0.35, delay: (index % 6) * 0.05, scrollTrigger: { trigger: node.closest(".bd-system-visual, .bd-cloud-visual"), start: "top 75%", once: true } });
       });
     }, root);
     return () => context.revert();
+    });
+    return () => media.revert();
   }, []);
 
   return null;

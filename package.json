@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "overrides": {
+    "postcss": "8.5.32"
+  },
   "scripts": {
+    "test": "node --test tests/*.test.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "typecheck": "npm run verify:home-boundary && tsc --noEmit",
     "verify:home-boundary": "node scripts/verify-homepage-boundary.mjs"
   },

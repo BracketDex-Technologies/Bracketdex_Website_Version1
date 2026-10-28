@@ -14,6 +14,16 @@ gsap.registerPlugin(useGSAP);
 
 const LETTERS = NAVBAR_LOGO_TEXT.split("");
 
+function hasSeenIntro() {
+  try { return window.sessionStorage.getItem(SITE_LOADER_SESSION_KEY) === "true"; }
+  catch { return true; }
+}
+
+function rememberIntro() {
+  try { window.sessionStorage.setItem(SITE_LOADER_SESSION_KEY, "true"); }
+  catch { /* Storage restrictions must not prevent access to the website. */ }
+}
+
 export function SiteLoader() {
   const rootRef = useRef<HTMLDivElement>(null);
   const markRef = useRef<HTMLDivElement>(null);
@@ -26,9 +36,11 @@ export function SiteLoader() {
     }
 
     document.documentElement.classList.add("bd-site-loader-active");
+    const fallback = window.setTimeout(() => setStatus("hidden"), SITE_LOADER_DURATION_MS + 1500);
 
     return () => {
       document.documentElement.classList.remove("bd-site-loader-active");
+      window.clearTimeout(fallback);
     };
   }, [status]);
 
@@ -39,7 +51,7 @@ export function SiteLoader() {
       }
 
       if (status === "checking") {
-        const hasSeenLoader = window.sessionStorage.getItem(SITE_LOADER_SESSION_KEY) === "true";
+        const hasSeenLoader = hasSeenIntro();
 
         setStatus(hasSeenLoader ? "hidden" : "visible");
         return;
@@ -50,7 +62,7 @@ export function SiteLoader() {
       const navMark = document.querySelector<HTMLElement>(NAVBAR_WORDMARK_DOCK_SELECTOR);
 
       if (!root || !mark || !navMark) {
-        window.sessionStorage.setItem(SITE_LOADER_SESSION_KEY, "true");
+        rememberIntro();
         setStatus("hidden");
         return;
       }
@@ -63,7 +75,7 @@ export function SiteLoader() {
           duration: 0.2,
           ease: "power1.out",
           onComplete: () => {
-            window.sessionStorage.setItem(SITE_LOADER_SESSION_KEY, "true");
+            rememberIntro();
             setStatus("hidden");
           },
         });
@@ -81,7 +93,7 @@ export function SiteLoader() {
       const tl = gsap.timeline({
         defaults: { ease: "power3.out" },
         onComplete: () => {
-          window.sessionStorage.setItem(SITE_LOADER_SESSION_KEY, "true");
+          rememberIntro();
           setStatus("hidden");
         },
       });

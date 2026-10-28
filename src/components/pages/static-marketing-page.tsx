@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
 import { cn } from "@/lib/utils";
+import { SelectedWork } from "@/components/marketing/selected-work";
 
 type StaticMarketingPageProps = {
   activeHref?: string;
@@ -38,9 +39,10 @@ export function StaticMarketingPage({
         eyebrow={content.eyebrow}
         headline={content.title}
         primaryCta={{ href: ctaHref, label: content.primaryCta ?? "Contact Us" }}
-        secondaryCta={{ href: "/services", label: content.secondaryCta ?? "View Services" }}
+        secondaryCta={{ href: path === "/services" ? "/projects" : path === "/industries" ? "/solutions" : "/services", label: content.secondaryCta ?? "View Services" }}
         subheadline={content.description}
       />
+      {path === "/projects" && <SelectedWork all />}
       {content.sections.map((section, index) => (
         <SectionContainer key={section.title} tone={index % 2 === 0 ? "muted" : "default"}>
           <SectionHeader description={section.description} label={section.label} title={section.title} />

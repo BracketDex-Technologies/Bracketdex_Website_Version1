@@ -1,256 +1,63 @@
 import { marketingContent } from "./marketing";
+import { engagementOptions } from "./work";
 
-export type PageCard = {
-  title: string;
-  description: string;
-};
+export type PageCard = { title: string; description: string };
+export type PageSection = { label: string; title: string; description?: string; cards?: readonly PageCard[]; list?: readonly string[] };
+export type StaticPageContent = { title: string; description: string; eyebrow: string; primaryCta?: string; secondaryCta?: string; sections: readonly PageSection[] };
 
-export type PageSection = {
-  label: string;
-  title: string;
-  description?: string;
-  cards?: readonly PageCard[];
-  list?: readonly string[];
-};
-
-export type StaticPageContent = {
-  title: string;
-  description: string;
-  eyebrow: string;
-  primaryCta?: string;
-  secondaryCta?: string;
-  sections: readonly PageSection[];
-};
-
-const contactCta = "Contact Us";
-const projectPlaceholderCards = marketingContent.projectPlaceholders.map((placeholder) => ({
-  title: placeholder.label,
-  description: placeholder.reason,
-}));
+const deliveryCards = [
+  { title: "A scope you can act on", description: "Requirements, priorities, dependencies and milestones agreed before development begins." },
+  { title: "Visibility as we build", description: "Working demos, clear progress updates and a shared place for decisions and feedback." },
+  { title: "A considered handover", description: "Source code, deployment guidance, documentation and a support plan appropriate to the system." },
+];
 
 export const pageContent = {
   services: {
-    title: "Software Development & Technology Services",
-    description:
-      "Custom software development, AI solutions, automation systems, cloud infrastructure, and digital growth services.",
-    eyebrow: "Services",
-    primaryCta: "Book Consultation",
-    secondaryCta: "View Projects",
+    title: "Technology that earns its place in your business.", eyebrow: "Services",
+    description: "Custom software, AI, automation and cloud infrastructure, built around the people and processes that use them.", primaryCta: "Discuss Your Project", secondaryCta: "View Projects",
     sections: [
-      {
-        label: "Capabilities",
-        title: "Service Categories",
-        description:
-          "Practical technology services for businesses that need software, automation, AI, and reliable infrastructure.",
-        cards: marketingContent.services,
-      },
-      {
-        label: "Process",
-        title: "How Work Moves Forward",
-        description: "A structured delivery path keeps scope, quality, and communication clear.",
-        cards: marketingContent.process.map((step) => ({
-          title: `${step.step}. ${step.title}`,
-          description: step.description,
-        })),
-      },
-      {
-        label: "Technology",
-        title: "Technology Stack",
-        description: "Implementation choices stay aligned with documented modern software and cloud capabilities.",
-        cards: marketingContent.technologyStack.map((group) => ({
-          title: group.category,
-          description: group.items.join(", "),
-        })),
-      },
+      { label: "Our capabilities", title: "Build, connect and improve.", description: "Choose a starting point. We will help define the right scope and technical approach.", cards: marketingContent.services },
+      { label: "Delivery", title: "A clear path from idea to release.", description: "Decisions, review points and responsibilities stay visible throughout the work.", cards: marketingContent.process.map(step => ({ title: `${step.step}. ${step.title}`, description: step.description })) },
+      { label: "Your handover", title: "More than a launch date.", cards: deliveryCards },
+      { label: "Technology", title: "The tools fit the problem.", description: "We select a stack around your existing systems, scale, operating costs and team.", cards: marketingContent.technologyStack.map(group => ({ title: group.category, description: group.items.join(" · ") })) },
     ],
   },
   solutions: {
-    title: "Business Technology Solutions",
-    description:
-      "Technology solutions designed to improve efficiency, automate operations, and support business growth.",
-    eyebrow: "Solutions",
-    primaryCta: "Book Consultation",
-    secondaryCta: "View Services",
+    title: "Make the way you work work better.", eyebrow: "Solutions",
+    description: "From a first product to an established operation, we turn the bottlenecks in your business into focused software initiatives.", primaryCta: "Discuss Your Challenge", secondaryCta: "View Services",
     sections: [
-      {
-        label: "Problems",
-        title: "Business Problems",
-        description:
-          "Solutions start with the operational, product, and scaling challenges documented for growing businesses.",
-        cards: marketingContent.homepage.problemGroups.map((group) => ({
-          title: group.title,
-          description: group.challenges.join(", "),
-        })),
-      },
-      {
-        label: "Outcomes",
-        title: "Solution Categories",
-        description: "Each category is framed around the business outcome it supports.",
-        cards: marketingContent.solutions.map((solution) => ({
-          title: solution.title,
-          description: solution.outcome,
-        })),
-      },
-      {
-        label: "Case Studies",
-        title: "Proof Requires Real Project Data",
-        description:
-          "Case studies will be added only after real project names, industries, problems, solutions, technologies, outcomes, and screenshots are available.",
-        cards: projectPlaceholderCards,
-      },
-      {
-        label: "Why BracketDex",
-        title: "Why Choose BracketDex",
-        description:
-          "The solution model favors business-first thinking, transparent communication, scalable architecture, and long-term value.",
-        cards: marketingContent.whyChooseUs,
-      },
-      {
-        label: "Partnership",
-        title: "Outcome-Focused Partnership",
-        description:
-          "The documented positioning is not feature vending. BracketDex should read as a strategic technology partner.",
-        cards: [
-          {
-            title: "Traditional Agency",
-            description: "Feature-focused, limited support, short-term engagement.",
-          },
-          {
-            title: "BracketDex Technologies",
-            description: "Outcome-focused, strategic partnership, long-term collaboration.",
-          },
-        ],
-      },
+      { label: "Starting points", title: "Different stages. Practical next steps.", cards: marketingContent.homepage.problemGroups.map(group => ({ title: group.title, description: group.challenges.join(" · ") })) },
+      { label: "What we build", title: "A system for the outcome you need.", cards: marketingContent.solutions.map(solution => ({ title: solution.title, description: solution.outcome })) },
+      { label: "Working together", title: "An engagement shaped around you.", cards: engagementOptions.map(option => ({ title: option.title, description: `${option.description} ${option.deliverable}.` })) },
+      { label: "Our approach", title: "Why Choose BracketDex", description: "Business context before technology.", cards: marketingContent.whyChooseUs.slice(3) },
     ],
   },
   industries: {
-    title: "Industry-Specific Technology Solutions",
-    description:
-      "Software and technology solutions tailored for startups, FinTech, healthcare, e-commerce, real estate, and more.",
-    eyebrow: "Industries",
-    primaryCta: "Book Consultation",
-    secondaryCta: "View Solutions",
+    title: "Built around the realities of your industry.", eyebrow: "Industries",
+    description: "Software for the workflows, teams and customer experiences that make your operation different.", primaryCta: "Discuss Your Workflow", secondaryCta: "View Solutions",
     sections: [
-      {
-        label: "Industries",
-        title: "Industry Grid",
-        description:
-          "Domain-aware software and automation for operations, workflows, platforms, and customer experiences.",
-        cards: marketingContent.industries,
-      },
-      {
-        label: "Challenges",
-        title: "Common Industry Challenges",
-        description: "Each industry page should stay focused on real business pain points before proposing technology.",
-        list: [
-          "Manual operations and disconnected systems",
-          "Legacy software that limits growth",
-          "Scalability, integrations, and reporting needs",
-        ],
-      },
-      {
-        label: "Case Studies",
-        title: "Industry Case Studies",
-        description:
-          "Industry case studies will remain placeholders until real project details and permission to publish are available.",
-        cards: projectPlaceholderCards,
-      },
+      { label: "Where we can help", title: "Industry context. Engineering depth.", cards: marketingContent.industries },
+      { label: "Discovery", title: "We start with how the work happens.", description: "Domain knowledge comes from understanding the people, data and constraints behind a process.", list: ["Map the current workflow and its handoffs", "Identify access, reporting and integration requirements", "Agree data handling and review responsibilities", "Prioritise a useful first release with your team"] },
+      { label: "Delivery", title: "Designed for everyday use.", cards: deliveryCards },
     ],
   },
   projects: {
-    title: "Projects & Case Studies",
-    description:
-      "Explore software projects, AI solutions, automation systems, and technology case studies delivered by BracketDex Technologies.",
-    eyebrow: "Projects",
-    primaryCta: contactCta,
-    secondaryCta: "View Services",
-    sections: [
-      {
-        label: "Portfolio",
-        title: "Case Studies Need Real Evidence",
-        description:
-          "Public project pages should answer what problem existed, what was built, why it was built, and what outcome was achieved.",
-        cards: projectPlaceholderCards,
-      },
-      {
-        label: "Format",
-        title: "Case Study Structure",
-        description: "Every project should follow a consistent format before publication.",
-        list: [
-          "Client, industry, and project category",
-          "Business problem and solution",
-          "Technologies used and measurable results",
-          "Desktop, tablet, and mobile screenshots",
-        ],
-      },
-    ],
+    title: "Useful software. Real business context.", eyebrow: "Projects",
+    description: "Explore selected BracketDex systems for learning, housing, business operations and automation.", primaryCta: "Discuss a Similar Project", secondaryCta: "View Services",
+    sections: [{ label: "Your project", title: "The next system starts with your workflow.", description: "Tell us what is slowing your team down, what already works and what success would look like. We can then agree a useful next step.", cards: deliveryCards }],
   },
   about: {
-    title: "About BracketDex Technologies",
-    description:
-      "Learn about BracketDex Technologies, our mission, vision, and commitment to helping businesses grow through technology.",
-    eyebrow: "About",
-    primaryCta: contactCta,
-    secondaryCta: "View Services",
+    title: "Engineering with a business purpose.", eyebrow: "About BracketDex",
+    description: "We help growing businesses build, automate and evolve the software they rely on. Based in Pune, we collaborate with teams remotely.", primaryCta: "Start a Conversation", secondaryCta: "View Services",
     sections: [
-      {
-        label: "Story",
-        title: "Company Story",
-        description:
-          "BracketDex Technologies was founded with a simple goal: make high-quality technology solutions accessible to growing businesses.",
-      },
-      {
-        label: "Mission and Vision",
-        title: "Why The Company Exists",
-        cards: [
-          {
-            title: "Mission",
-            description: marketingContent.company.mission,
-          },
-          {
-            title: "Vision",
-            description: marketingContent.company.vision,
-          },
-        ],
-      },
-      {
-        label: "Values",
-        title: "Core Values",
-        list: [
-          "Quality First",
-          "Simplicity",
-          "Transparency",
-          "Innovation",
-          "Long-Term Partnership",
-          "Continuous Improvement",
-        ],
-      },
-      {
-        label: "Achievements",
-        title: "Achievements Need Source Data",
-        description:
-          "Awards, certifications, client logos, metrics, and leadership details will remain unpublished until accurate source information is supplied.",
-      },
+      { label: "Why we exist", title: "Make useful technology accessible.", description: "Businesses should be able to improve the way they operate without getting lost in unnecessary complexity. BracketDex brings discovery, design, software engineering and ongoing improvement into one working relationship." },
+      { label: "Our direction", title: "A clear reason to build.", cards: [{ title: "Mission", description: "Help businesses improve efficiency, automate processes and grow with modern technology." }, { title: "Vision", description: marketingContent.company.vision }] },
+      { label: "How we work", title: "Clear decisions. Shared ownership.", cards: [{ title: "Business first", description: "Understand the workflow and the people before choosing the technology." }, { title: "Progress you can see", description: "Use milestones, demos and direct communication to keep decisions grounded." }, { title: "Built for what comes next", description: "Consider maintainability, documentation and a practical handover from the start." }] },
     ],
   },
   contact: {
-    title: "Contact BracketDex Technologies",
-    description:
-      "Discuss your project, software requirements, AI initiatives, or automation goals with our team.",
-    eyebrow: "Contact",
-    sections: [
-      {
-        label: "Start",
-        title: "Let's Discuss Your Project",
-        description:
-          "Have an idea, project, or business challenge? Let's discuss how technology can help achieve your goals.",
-      },
-      {
-        label: "Contact Details",
-        title: "Business Details Pending",
-        description:
-          "Email, phone, location, calendar, and social links should be added only after verified business contact details are supplied.",
-      },
-    ],
+    title: "Tell us what you want to make better.", eyebrow: "Start a conversation",
+    description: "Share an idea, an existing system or an operational bottleneck. A clear first conversation starts with your business context.",
+    sections: [{ label: "Your brief", title: "A few details are enough to start.", description: "Tell us about your users, the problem, your existing tools and any timing constraints. If you are still working out the scope, that is a useful place to begin." }],
   },
 } as const satisfies Record<string, StaticPageContent>;

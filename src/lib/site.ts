@@ -7,3 +7,11 @@ export const siteConfig = {
     "BracketDex Technologies helps startups and businesses build software, automation, and AI systems that help growing businesses operate faster, work smarter, and scale with confidence.",
   url: "https://bracketdex.com",
 };
+
+// Public business details documented in the existing website's later history.
+export const contactDetails = {
+  email: "bracketdevs.teams@gmail.com",
+  phone: "+91 8605589062",
+  phoneHref: "tel:+918605589062",
+  location: "Pune, Maharashtra, India",
+} as const;

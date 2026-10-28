@@ -12,6 +12,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import { marketingContent } from "@/content/marketing";
 import { pageContent } from "@/content/pages";
 import { buildBreadcrumbJsonLd, buildPageMetadata } from "@/lib/seo";
+import { contactDetails } from "@/lib/site";
 
 export const metadata: Metadata = buildPageMetadata("/contact");
 
@@ -47,22 +48,22 @@ export default function ContactPage() {
       </SectionContainer>
       <SectionContainer>
         <div className="grid gap-4 md:grid-cols-3">
-          <Card className="border-dashed shadow-none">
+          <Card className="shadow-none">
             <CardHeader>
               <CardTitle>Email</CardTitle>
-              <CardDescription>Verified email address required.</CardDescription>
+              <CardDescription><a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a></CardDescription>
             </CardHeader>
           </Card>
-          <Card className="border-dashed shadow-none">
+          <Card className="shadow-none">
             <CardHeader>
               <CardTitle>Phone</CardTitle>
-              <CardDescription>Verified phone number required.</CardDescription>
+              <CardDescription><a href={contactDetails.phoneHref}>{contactDetails.phone}</a></CardDescription>
             </CardHeader>
           </Card>
-          <Card className="border-dashed shadow-none">
+          <Card className="shadow-none">
             <CardHeader>
               <CardTitle>Location</CardTitle>
-              <CardDescription>Verified business location required.</CardDescription>
+              <CardDescription>{contactDetails.location} · Remote collaboration</CardDescription>
             </CardHeader>
           </Card>
         </div>

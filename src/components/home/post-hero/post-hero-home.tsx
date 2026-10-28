@@ -10,6 +10,8 @@ import {
 
 import type { MarketingContent } from "@/content/marketing";
 import { FaqSection } from "@/components/marketing/faq-section";
+import { SelectedWork } from "@/components/marketing/selected-work";
+import { EngagementSection } from "./engagement-section";
 import { buildPostHeroContent } from "./post-hero-content";
 import { PostHeroMotion } from "./post-hero-motion";
 import { CloudDevOpsVisual, SystemVisual } from "./system-visuals";
@@ -36,11 +38,13 @@ export function PostHeroHome({ content }: { content: MarketingContent }) {
             <h2 id="post-hero-intro-title">From business need to working system.</h2>
           </div>
           <p>
-            {content.company.mission} One visible path keeps priorities, decisions, delivery,
-            and release aligned.
+            Replace disconnected tools and repetitive work with software shaped around your
+            business. We connect discovery, design, engineering and support in one delivery path.
           </p>
         </div>
       </section>
+
+      <SelectedWork />
 
       <div className="bd-post-dark">
         <div className="content-shell">
@@ -158,12 +162,14 @@ export function PostHeroHome({ content }: { content: MarketingContent }) {
         </div>
       </div>
 
+      <EngagementSection />
+
       <section className="bd-post-faq" aria-labelledby="post-faq-title">
         <div className="content-shell bd-post-faq__grid">
           <div>
             <p className="bd-post-kicker">FAQ</p>
             <h2 id="post-faq-title">Questions, answered clearly.</h2>
-            <p>Direct answers based on documented BracketDex services and working style.</p>
+            <p>What to expect before we start, during delivery and after launch.</p>
           </div>
           <FaqSection defaultOpenFirst items={content.faqs} />
         </div>

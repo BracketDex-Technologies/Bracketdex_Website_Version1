@@ -55,7 +55,7 @@ export function HeroSection({
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Delivery Flow</p>
                 <p className="mt-1 text-sm text-muted-foreground">Idea to scalable system</p>
               </div>
-              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Live</span>
+              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Our approach</span>
             </div>
             <div className="grid gap-3">
               {[

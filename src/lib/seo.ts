@@ -12,6 +12,8 @@ export type SeoRoute = {
 };
 
 export const seoRoutes = [
+  { path: "/faq", title: "Frequently Asked Questions | BracketDex Technologies", description: "Answers about project scope, delivery, support and working with BracketDex.", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/privacy", title: "Privacy Notice | BracketDex Technologies", description: "How BracketDex handles information shared through website enquiries and browser preferences.", changeFrequency: "monthly", priority: 0.3 },
   {
     path: "/",
     title: "BracketDex Technologies | Engineering Solutions For Growing Businesses",
