@@ -19,7 +19,8 @@ const css = normalizeText(readFileSync(cssPath, "utf8"));
 const heroAsset = readFileSync(heroAssetPath);
 
 const expectedDigests = {
-  navbar: "ae9b1521575f92790fd213032f649725754766113f3a5dc3c3ac8d2b23306264",
+  // Approved logo update: braces use the existing wordmark font.
+  navbar: "8641416d60cdf1c5c72d6706a073da7b8bcd8804e4fcf1a78d9579bd0ea55055",
   heroAsset: "6b5527ce4704bc31a6fa89ccd497e3099696172dc3317450b2c579250f42be79",
   homeHeroSlice: "ab29b97a1e02eabf1bec905e0257bb959a3f67c8e1dd4056e228b2f5f53642e1",
   frozenLandingCssRange: "beba1086116a3a27737ddba2f3e9a34b1783a9fd73c236cc924396fd5b9f326d",

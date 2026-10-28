@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 
 import type { MarketingContent } from "@/content/marketing";
-import { FaqSection } from "@/components/marketing/faq-section";
 import { SelectedWork } from "@/components/marketing/selected-work";
 import { EngagementSection } from "./engagement-section";
 import { buildPostHeroContent } from "./post-hero-content";
@@ -163,17 +162,6 @@ export function PostHeroHome({ content }: { content: MarketingContent }) {
       </div>
 
       <EngagementSection />
-
-      <section className="bd-post-faq" aria-labelledby="post-faq-title">
-        <div className="content-shell bd-post-faq__grid">
-          <div>
-            <p className="bd-post-kicker">FAQ</p>
-            <h2 id="post-faq-title">Questions, answered clearly.</h2>
-            <p>What to expect before we start, during delivery and after launch.</p>
-          </div>
-          <FaqSection defaultOpenFirst items={content.faqs} />
-        </div>
-      </section>
 
       <section className="bd-post-cta" aria-labelledby="post-cta-title">
         <div className="content-shell bd-post-cta__grid">

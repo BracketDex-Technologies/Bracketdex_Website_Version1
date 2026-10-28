@@ -22,7 +22,8 @@ test("all public pages render with a unique title, one h1 and a usable footer", 
 });
 test("homepage and portfolio contain evidence and clear ways to start", async () => {
   const home = await (await fetch(base)).text();
-  for(const text of ["Kiosk Learning Lab","WiseMelon","ReManage Society","Start where you are.","How much will a project cost"]) assert.ok(home.includes(text),text);
+  for(const text of ["Kiosk Learning Lab","WiseMelon","ReManage Society","Start where you are.","{BracketDex}"]) assert.ok(home.includes(text),text);
+  assert.doesNotMatch(home, /Questions, answered clearly\.|post-faq-title|"@type":"FAQPage"/);
   const projects = await (await fetch(base+"/projects")).text();
   for(const text of ["NativeBerry","CreativeMark Hub","QuoteFlow"]) assert.ok(projects.includes(text),text);
 });

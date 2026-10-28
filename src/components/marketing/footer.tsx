@@ -16,7 +16,7 @@ export function Footer({ brandName, description, navigation }: FooterProps) {
     <footer className="bd-complete-footer" id="site-footer" role="contentinfo" aria-label="Site footer">
       <div className="content-shell">
         <div className="bd-footer-top">
-          <div><Link className="bd-footer-brand" href="/" aria-label={`${brandName} home`}>BracketDex<span aria-hidden="true">.</span></Link><p>{description}</p><span className="bd-footer-location"><MapPin size={16} aria-hidden="true" />{contactDetails.location}</span></div>
+          <div><Link className="bd-footer-brand" href="/" aria-label={`${brandName} home`}>{"{BracketDex}"}</Link><p>{description}</p><span className="bd-footer-location"><MapPin size={16} aria-hidden="true" />{contactDetails.location}</span></div>
           <nav aria-label="Footer navigation"><h2>Explore</h2>{navigation.map(item => <Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href="/faq">FAQ</Link></nav>
           <div className="bd-footer-contact"><h2>Bring us your next challenge.</h2><p>A new product, an existing workflow or a system that needs to grow with you.</p><a href={`mailto:${contactDetails.email}`}><Mail size={17} aria-hidden="true" />{contactDetails.email}</a><a href={contactDetails.phoneHref}><Phone size={17} aria-hidden="true" />{contactDetails.phone}</a><Link className="bd-footer-cta" href="/contact">Start a conversation <ArrowUpRight size={18} aria-hidden="true" /></Link></div>
         </div>

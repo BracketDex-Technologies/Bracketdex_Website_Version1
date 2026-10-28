@@ -88,7 +88,9 @@ export function SiteLoader() {
         root.querySelector<HTMLElement>(".bd-site-loader-text")?.scrollWidth ?? markRect.width;
       const dockX = navRect.left + navRect.width / 2 - (markRect.left + markRect.width / 2);
       const dockY = navRect.top + navRect.height / 2 - (markRect.top + markRect.height / 2);
-      const dockScale = navRect.width / Math.max(textWidth, 1);
+      const bracketWidth = Array.from(root.querySelectorAll(".bd-site-loader-bracket"))
+        .reduce((width, bracket) => width + bracket.getBoundingClientRect().width, 0);
+      const dockScale = navRect.width / Math.max(textWidth + bracketWidth, 1);
 
       const tl = gsap.timeline({
         defaults: { ease: "power3.out" },
@@ -115,7 +117,7 @@ export function SiteLoader() {
           { autoAlpha: 1, y: 0, duration: 0.42, stagger: 0.04, ease: "back.out(1.6)" },
           "<"
         )
-        .to(".bd-site-loader-bracket", { autoAlpha: 0, scale: 0.78, duration: 0.42, ease: "back.in(1.4)" }, ">+=0.16")
+        .to(".bd-site-loader-bracket", { color: "#f5f5f2", duration: 0.42, ease: "sine.out" }, ">+=0.16")
         .to(".bd-site-loader-mark", { gap: 0, duration: 0.38, ease: "elastic.out(1, 0.85)" }, "<")
         .to(".bd-site-loader-text", { color: "#f5f5f2", duration: 0.34, ease: "sine.out" }, ">-=0.05")
         .to(".bd-site-loader-underline", { scaleX: 1, autoAlpha: 0.52, duration: 0.36, ease: "back.out(1.4)" }, "<+=0.08")

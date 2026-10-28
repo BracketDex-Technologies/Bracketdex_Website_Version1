@@ -4,7 +4,7 @@ import type { MarketingContent } from "@/content/marketing";
 import { Footer } from "@/components/marketing/footer";
 import { Navbar } from "@/components/marketing/navbar";
 import { JsonLd } from "@/components/seo/json-ld";
-import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo";
+import { buildBreadcrumbJsonLd } from "@/lib/seo";
 import { PostHeroHome } from "./post-hero/post-hero-home";
 
 type HomePageProps = {
@@ -19,7 +19,6 @@ export function HomePage({ content }: HomePageProps) {
   return (
     <main className="bd-landing min-h-screen" id="main-content" tabIndex={-1}>
       <JsonLd data={buildBreadcrumbJsonLd("/")} />
-      <JsonLd data={buildFaqJsonLd()} />
 
       <Navbar
         activeHref="/"

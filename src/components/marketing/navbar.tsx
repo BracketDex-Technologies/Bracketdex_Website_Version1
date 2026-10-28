@@ -43,7 +43,7 @@ export function Navbar({
           aria-label={`${brandName} home`}
         >
           <span aria-hidden="true" className="bd-wordmark" data-site-wordmark>
-            {NAVBAR_LOGO_TEXT}
+            {`{${NAVBAR_LOGO_TEXT}}`}
           </span>
           <span className="sr-only">{brandName}</span>
         </Link>
