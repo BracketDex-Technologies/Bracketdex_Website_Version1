@@ -21,10 +21,18 @@ main > section > div, main form, .content-shell > * { min-width: 0; }
 .bd-work-meta span:last-child { color: #6a746b; }
 .bd-work-card h3 { margin: 0 0 1.5rem; font-size: clamp(1.4rem,2vw,1.9rem); font-weight: 500; line-height: 1.2; letter-spacing: -.035em; }
 .bd-work-card dl { margin: 0 0 2rem; }
+.bd-work-filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1rem; }
+.bd-work-filters button { display: inline-flex; align-items: center; gap: .65rem; min-height: 44px; padding: .6rem 1rem; border: 1px solid #bac9b7; border-radius: 24px; color: #344337; background: #fbfcf8; font-size: .85rem; cursor: pointer; }
+.bd-work-filters button[aria-pressed="true"] { color: #fff; background: #234f35; border-color: #234f35; }
+.bd-work-filters button:hover { border-color: #234f35; }
+.bd-work-filters button span { font-size: .75rem; opacity: .8; }
+.bd-work-count { margin-bottom: 1.5rem !important; color: #506052; font-size: .85rem; }
+.bd-work-tags { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: auto 0 1rem; }
+.bd-work-tags li { padding: .3rem .6rem; border: 1px solid #d4dccf; border-radius: 20px; color: #516653; font-size: .7rem; line-height: 1.4; }
 .bd-work-card dl > div { padding-block: .85rem; border-top: 1px solid #e1e5da; }
 .bd-work-card dt { margin-bottom: .4rem; color: #63725d; font: 500 .65rem/1.5 ui-monospace,monospace; letter-spacing: .07em; text-transform: uppercase; }
 .bd-work-card dd { margin: 0; font-size: .94rem; line-height: 1.65; color: #344337; }
-.bd-work-card > a { display: flex; justify-content: space-between; gap: .75rem; align-items: center; min-height: 44px; margin-top: auto; padding-top: .8rem; border-top: 1px solid #d4dccf; color: #234f35; font-size: .85rem; font-weight: 600; }
+.bd-work-card > a { display: flex; justify-content: space-between; gap: .75rem; align-items: center; min-height: 44px; padding-top: .8rem; border-top: 1px solid #d4dccf; color: #234f35; font-size: .85rem; font-weight: 600; }
 .bd-work-card > a svg { flex-shrink: 0; transition: transform .2s; }
 .bd-work-card > a:hover svg { transform: translate(2px,-2px); }
 .bd-complete-link { display: inline-flex; align-items: center; gap: .75rem; margin-top: 2rem; min-height: 44px; font-weight: 600; color: #234f35; }

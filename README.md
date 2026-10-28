@@ -27,7 +27,7 @@ In a second terminal, run `npm test`. Route tests expect port 3015; set `SITE_TE
 ## Content and enquiries
 
 - Main content: `src/content/marketing.ts` and `src/content/pages.ts`.
-- Portfolio and engagement options: `src/content/work.ts`. Project summaries come from the original repository's public website content at revision `230aced`; they do not claim measured performance or client endorsements.
+- Portfolio and engagement options: `src/content/work.ts`. All 15 project summaries were supplied by BracketDex. The projects page includes category filters; the homepage previews the first three. Maintain the category groups and original industry/type tags in this content file.
 - Business contact details: `src/lib/site.ts`.
 - Contact form: validates and prepares a brief locally. The visitor reviews it and chooses to send it through their email application. No email delivery API, hidden submission or database is configured. Copying the brief into webmail is the fallback.
 - The privacy notice describes this behavior. Update it when adding analytics, email delivery, a CRM or other data processing.

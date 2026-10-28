@@ -25,7 +25,10 @@ test("homepage and portfolio contain evidence and clear ways to start", async ()
   for(const text of ["Kiosk Learning Lab","WiseMelon","ReManage Society","Start where you are.","{BracketDex}"]) assert.ok(home.includes(text),text);
   assert.doesNotMatch(home, /Questions, answered clearly\.|post-faq-title|"@type":"FAQPage"/);
   const projects = await (await fetch(base+"/projects")).text();
-  for(const text of ["NativeBerry","CreativeMark Hub","QuoteFlow"]) assert.ok(projects.includes(text),text);
+  for(const text of ["Kiosk Learning Lab","WiseMelon","ReManage Society","Samavet","NativeBerry","CreativeMark Hub","Regulatory Services Portal","QuoteFlow","Easy ITR Filing","Praja","Network Compass","Gym Engine","Group Trek Bot","Smart Tap AI","Schedule Poster Studio"]) assert.ok(projects.includes(text),text);
+  assert.equal((projects.match(/data-work-card=/g)||[]).length,15);
+  assert.equal((home.match(/data-work-card=/g)||[]).length,3);
+  assert.match(projects,/Filter projects by category/);
 });
 test("enquiry describes email handoff honestly and unknown URLs return 404", async () => {
   const contact = await (await fetch(base+"/contact")).text();
