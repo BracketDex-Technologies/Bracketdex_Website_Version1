@@ -110,37 +110,6 @@ export function PostHeroHome({ content }: { content: MarketingContent }) {
             </ol>
           </section>
 
-          <section
-            className="bd-capability-index"
-            data-motion-section
-            aria-labelledby="capabilities-title"
-          >
-            <div className="bd-section-heading">
-              <p className="bd-post-kicker">Capability index</p>
-              <h2 id="capabilities-title">Technology depth. Industry context.</h2>
-            </div>
-            <div className="bd-capability-index__grid">
-              <div>
-                <h3>Technologies</h3>
-                {content.technologyStack.map((group) => (
-                  <div className="bd-capability-row" key={group.category}>
-                    <strong>{group.category}</strong>
-                    <span>{group.items.join(" · ")}</span>
-                  </div>
-                ))}
-              </div>
-              <div>
-                <h3>Industries we serve</h3>
-                {content.industries.map((industry) => (
-                  <div className="bd-capability-row" key={industry.title}>
-                    <strong>{industry.title}</strong>
-                    <span>{industry.description}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
           <section className="bd-proof-craft" data-motion-section aria-label="Proof of craft">
             {postHero.proofOfCraft.map((item, index) => {
               const Icon = proofIcons[index];
