@@ -28,7 +28,7 @@ export function HeroSection({
   const headlineUsesBrandFont = headline.includes("BracketDex");
 
   return (
-    <section className="content-shell grid gap-10 py-14 sm:py-20 lg:grid-cols-[minmax(0,0.95fr)_minmax(22rem,0.65fr)] lg:items-center lg:py-24">
+    <section className="content-shell grid gap-10 pt-28 pb-14 sm:py-20 lg:grid-cols-[minmax(0,0.95fr)_minmax(22rem,0.65fr)] lg:items-center lg:py-24">
       <div className="max-w-reading">
         <p className={cn("mb-4 text-sm font-medium uppercase tracking-[0.18em] text-primary", eyebrowUsesBrandFont && "bd-brand-font")}>
           {eyebrow}
